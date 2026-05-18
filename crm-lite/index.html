@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NQZZBRF8');</script>
+    <!-- End Google Tag Manager - Container adicional (Signup) -->
+     
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartChat</title>
+    <meta name="description" content="Sistema de CRM inteligente com automação WhatsApp" />
+    <meta name="author" content="SmartChat" />
+
+    <meta property="og:title" content="SmartChat" />
+    <meta property="og:description" content="Sistema de CRM inteligente com automação WhatsApp" />
+    <meta property="og:type" content="website" />
+
+    <!-- Mixpanel Analytics - SmartCRM User Activity Tracking -->
+    <script type="text/javascript">
+      (function(f,b){
+          if(!b.__SV){
+              var e,g,i,h;
+              window.mixpanel=b;
+              b._i=[];
+              b.init=function(e,f,c){
+                  function g(a,d){
+                      var b=d.split(".");
+                      2==b.length&&(a=a[b[0]],d=b[1]);
+                      a[d]=function(){
+                          a.push([d].concat(Array.prototype.slice.call(arguments,0)))
+                      }
+                  }
+                  var a=b;
+                  "undefined"!==typeof c?a=b[c]=[]:c="mixpanel";
+                  a.people=a.people||[];
+                  a.toString=function(a){
+                      var d="mixpanel";
+                      "mixpanel"!==c&&(d+="."+c);
+                      a||(d+=" (stub)");
+                      return d
+                  };
+                  a.people.toString=function(){
+                      return a.toString(1)+".people (stub)"
+                  };
+                  i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once unregister identify alias name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking get_group".split(" ");
+                  for(h=0;h<i.length;h++)g(a,i[h]);
+                  b._i.push([e,f,c])
+              };
+              b.__SV=1.2;
+              e=f.createElement("script");
+              e.type="text/javascript";
+              e.async=!0;
+              e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+              g=f.getElementsByTagName("script")[0];
+              g.parentNode.insertBefore(e,g)
+          }
+      })(document,window.mixpanel||[]);
+      mixpanel.init("3b611854e8d7a0629b0607e6ea9b5169");
+    </script>
+    <!-- End Mixpanel Analytics -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1533586457803445');
+    fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQZZBRF8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div id="root"></div>
+    
+    <!-- Meta Pixel NoScript -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1533586457803445&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel NoScript -->
+    
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

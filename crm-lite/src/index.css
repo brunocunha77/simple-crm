@@ -1,0 +1,170 @@
+/* postcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 255 84% 75%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 255 84% 75%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 253 83% 95%;
+    --sidebar-foreground: 256 26% 22%;
+    --sidebar-primary: 255 84% 75%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 255 94% 87%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 255 94% 87%;
+    --sidebar-ring: 255 84% 75%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 256 83% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 256 83% 61%;
+    
+    --sidebar-background: 256 30% 14%;
+    --sidebar-foreground: 255 94% 87%;
+    --sidebar-primary: 256 83% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 257 28% 20%;
+    --sidebar-accent-foreground: 255 94% 87%;
+    --sidebar-border: 257 28% 20%;
+    --sidebar-ring: 255 84% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground py-2 px-4 rounded-md transition-colors;
+  }
+
+  .input-field {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .status-new {
+    @apply bg-primary-100 text-primary-700;
+  }
+  
+  .status-in-progress {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .status-qualified {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-negotiation {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-won {
+    @apply bg-success/20 text-success;
+  }
+  
+  .status-lost {
+    @apply bg-danger/20 text-danger;
+  }
+
+  /* ====== Workflow Builder / React Flow - Cursores ====== */
+  /* Todos os nodes são clicáveis (abrem configuração), então usar pointer */
+  .react-flow__node {
+    cursor: pointer !important;
+  }
+
+  .react-flow__node * {
+    cursor: pointer !important;
+  }
+
+  /* Edges continuam clicáveis para seleção/remoção */
+  .react-flow__edge-path {
+    cursor: pointer;
+  }
+
+  /* Canvas vazio: indicar que pode arrastar */
+  .react-flow__pane {
+    cursor: grab;
+  }
+
+  .react-flow__pane.dragging {
+    cursor: grabbing;
+  }
+}
