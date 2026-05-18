@@ -7,22 +7,22 @@ import { fetchUserData } from "./fetchUserData";
 async function checkEmailExists(email: string): Promise<{ exists: boolean; table: string | null }> {
   try {
     // Verificar na tabela clientes_info
-    const { data: clienteData, error: clienteError } = await supabase
+    const { data: clienteData } = await supabase
       .from('clientes_info')
       .select('id')
       .eq('email', email)
-      .single();
+      .maybeSingle();
 
     if (clienteData) {
       return { exists: true, table: 'clientes_info' };
     }
 
     // Verificar na tabela atendentes
-    const { data: atendenteData, error: atendenteError } = await supabase
+    const { data: atendenteData } = await supabase
       .from('atendentes')
       .select('id')
       .eq('email', email)
-      .single();
+      .maybeSingle();
 
     if (atendenteData) {
       return { exists: true, table: 'atendentes' };
@@ -212,23 +212,6 @@ export async function signUpUser(
       throw new Error(errorMessage);
     }
     
-    // Verificar conectividade com o Supabase antes de tentar o cadastro
-    try {
-      // Faz uma requisição leve para verificar a conectividade
-      const { error: pingError } = await supabase.from('_pgrst_reserved_relation').select('count', { count: 'exact', head: true });
-      if (pingError) {
-        console.error("Erro de conectividade com o Supabase:", pingError);
-        const msg = "Não foi possível conectar ao servidor. Verifique sua conexão com a internet e tente novamente.";
-        setError(msg);
-        throw new Error(msg);
-      }
-    } catch (pingError) {
-      console.error("Erro ao verificar conectividade:", pingError);
-      const msg = "Não foi possível conectar ao servidor. Verifique sua conexão com a internet e tente novamente.";
-      setError(msg);
-      throw new Error(msg);
-    }
-    
     // Simplificar o processo de signup sem redirecionar para evitar problemas
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -332,8 +315,8 @@ export async function signUpUser(
         onSuccess();
       }, 2000);
     } else {
-      console.error("Dados do usuário não retornados após cadastro");
-      const msg = "Erro ao finalizar cadastro";
+      // Supabase retorna user=null quando o email já existe mas não foi confirmado
+      const msg = "Este email já foi cadastrado. Verifique sua caixa de entrada para confirmar sua conta.";
       setError(msg);
       throw new Error(msg);
     }
