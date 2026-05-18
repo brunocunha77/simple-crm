@@ -5,7 +5,6 @@ import posthog from 'posthog-js';
 import { PostHogProvider } from '@posthog/react';
 import App from './App';
 import './index.css';
-import './pages/chatbots/flow/flow-builder.css';
 
 const posthogToken = import.meta.env.VITE_PUBLIC_POSTHOG_TOKEN;
 const posthogHost = import.meta.env.VITE_PUBLIC_POSTHOG_HOST;
